@@ -1,10 +1,9 @@
-# Brief: Scaffold a Godot 4 Craft Brewery Sim
+# Scope
 
 ## Context
 
 You are setting up the foundational infrastructure for a menu-driven craft brewery management sim built in Godot 4. The game has no real-time gameplay — the player interacts with menus, clicks Continue, a week simulates, and they land back on an inbox screen to deal with events and make decisions.
 
-You are running inside an existing blank Godot 4 project at `/Users/jonny.gates/code/jonny-gates/craft-brew-sim/`. The project folder already contains a `project.godot` file. Do not modify `project.godot` directly except to append AutoLoad registrations at the end (see step 5).
 
 ## Architecture
 
@@ -109,16 +108,3 @@ The agent is done when:
 4. Repeated clicks keep advancing the week with no errors in the output panel.
 5. `GameState` contains no `Node` references, `Callable`s, or signal connections — only serializable data.
 6. No GDScript parse errors; no runtime errors in the debugger.
-
-## Non-goals
-
-- Do not implement save/load yet. The discipline of keeping `GameState` serializable is enough for now.
-- Do not flesh out Brewing, Plots, Marketing, or Finance screens. Stubs only.
-- Do not add art, themes, or styling beyond what Godot provides by default.
-- Do not add tests — Godot's test story is awkward and this is too early.
-
-## Style
-
-- GDScript, typed (`var x: int`, `func foo() -> void`).
-- No comments explaining what code does. One-line `# TODO:` markers in the sim phase stubs are fine.
-- Keep each file small; if a file is growing past ~80 lines at this stage, something is wrong.
