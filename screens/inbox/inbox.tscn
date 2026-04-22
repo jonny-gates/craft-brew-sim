@@ -18,5 +18,8 @@ text = "Week 1 — $10000"
 
 [node name="MessageList" type="VBoxContainer" parent="VBoxContainer"]
 
+[node name="ShopButton" type="Button" parent="VBoxContainer"]
+text = "Shop"
+
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 text = "Continue"
