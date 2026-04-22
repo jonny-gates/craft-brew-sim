@@ -9,6 +9,29 @@ func advance_week() -> void:
 	EventBus.week_advanced.emit(GameState.week)
 	EventBus.inbox_updated.emit()
 
+func buy_equipment(id: String) -> bool:
+	var item := Catalog.find_equipment(id)
+	if item == null or GameState.cash < item.price:
+		return false
+	GameState.cash -= item.price
+	GameState.equipment[id] = int(GameState.equipment.get(id, 0)) + 1
+	EventBus.cash_changed.emit(GameState.cash)
+	EventBus.inventory_changed.emit()
+	return true
+
+func buy_ingredient(id: String, quantity: int = 1) -> bool:
+	var item := Catalog.find_ingredient(id)
+	if item == null or quantity <= 0:
+		return false
+	var total: int = item.price * quantity
+	if GameState.cash < total:
+		return false
+	GameState.cash -= total
+	GameState.ingredients[id] = int(GameState.ingredients.get(id, 0)) + quantity
+	EventBus.cash_changed.emit(GameState.cash)
+	EventBus.inventory_changed.emit()
+	return true
+
 func _run_production() -> void:
 	pass  # TODO: implement production phase
 
