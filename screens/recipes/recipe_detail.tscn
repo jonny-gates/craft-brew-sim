@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://screens/recipes/recipe_detail.gd" id="1_detail"]
+
+[node name="RecipeDetail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_detail")
+
+[node name="Scroll" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Label" parent="Scroll/VBox"]
+text = "Recipe"
+
+[node name="Subheader" type="Label" parent="Scroll/VBox"]
+text = ""
+
+[node name="EquipmentHeader" type="Label" parent="Scroll/VBox"]
+text = "Equipment"
+
+[node name="EquipmentList" type="VBoxContainer" parent="Scroll/VBox"]
+
+[node name="IngredientsHeader" type="Label" parent="Scroll/VBox"]
+text = "Ingredients"
+
+[node name="IngredientsList" type="VBoxContainer" parent="Scroll/VBox"]
+
+[node name="TimeLabel" type="Label" parent="Scroll/VBox"]
+text = "Time to brew:"
+
+[node name="OutputLabel" type="Label" parent="Scroll/VBox"]
+text = "Output:"
+
+[node name="StatusLabel" type="Label" parent="Scroll/VBox"]
+text = ""
+
+[node name="StartBatchButton" type="Button" parent="Scroll/VBox"]
+text = "Start Batch"
+
+[node name="BackButton" type="Button" parent="Scroll/VBox"]
+text = "Back"
+
+[node name="ConfirmDialog" type="ConfirmationDialog" parent="."]
+title = "Confirm batch"
+dialog_text = "Start a batch?"
