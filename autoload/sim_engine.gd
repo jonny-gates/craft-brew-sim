@@ -98,6 +98,18 @@ func _generate_events() -> void:
 	msg.read = false
 	GameState.inbox.append(msg)
 
+func mark_read(msg_id: String) -> void:
+	for msg: InboxMessage in GameState.inbox:
+		if msg.id == msg_id:
+			msg.read = true
+			break
+
+func delete_message(msg_id: String) -> void:
+	GameState.inbox = GameState.inbox.filter(
+		func(m: InboxMessage) -> bool: return m.id != msg_id
+	)
+	EventBus.inbox_updated.emit()
+
 func _check_recipe_discovery() -> void:
 	var changed := false
 	for recipe: Recipe in Catalog.recipes():
