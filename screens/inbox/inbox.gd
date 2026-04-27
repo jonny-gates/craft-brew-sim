@@ -3,6 +3,8 @@ extends Control
 @onready var header_label: Label = $VBoxContainer/Header
 @onready var message_list: VBoxContainer = $VBoxContainer/MessageList
 @onready var shop_button: Button = $VBoxContainer/ShopButton
+@onready var recipes_button: Button = $VBoxContainer/RecipesButton
+@onready var brewing_button: Button = $VBoxContainer/BrewingButton
 @onready var continue_button: Button = $VBoxContainer/ContinueButton
 
 func _ready() -> void:
@@ -10,6 +12,8 @@ func _ready() -> void:
 	EventBus.inbox_updated.connect(_on_inbox_updated)
 	EventBus.cash_changed.connect(_on_cash_changed)
 	shop_button.pressed.connect(_on_shop_pressed)
+	recipes_button.pressed.connect(_on_recipes_pressed)
+	brewing_button.pressed.connect(_on_brewing_pressed)
 	continue_button.pressed.connect(_on_continue_pressed)
 	_refresh()
 
@@ -38,6 +42,12 @@ func _refresh() -> void:
 
 func _on_shop_pressed() -> void:
 	(get_parent() as ScreenManager).show_screen("res://screens/shop/shop.tscn")
+
+func _on_recipes_pressed() -> void:
+	(get_parent() as ScreenManager).show_screen("res://screens/recipes/recipes.tscn")
+
+func _on_brewing_pressed() -> void:
+	(get_parent() as ScreenManager).show_screen("res://screens/brewing/brewing.tscn")
 
 func _on_continue_pressed() -> void:
 	SimEngine.advance_week()
