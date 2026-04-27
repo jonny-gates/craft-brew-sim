@@ -21,5 +21,11 @@ text = "Week 1 — $10000"
 [node name="ShopButton" type="Button" parent="VBoxContainer"]
 text = "Shop"
 
+[node name="RecipesButton" type="Button" parent="VBoxContainer"]
+text = "Recipes"
+
+[node name="BrewingButton" type="Button" parent="VBoxContainer"]
+text = "Brewing"
+
 [node name="ContinueButton" type="Button" parent="VBoxContainer"]
 text = "Continue"
